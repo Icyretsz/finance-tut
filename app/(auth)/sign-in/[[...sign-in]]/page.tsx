@@ -24,8 +24,8 @@ export default function Page() {
                 </div>
             </div>
             <div>
-                <div className="h-full hidden lg:flex items-center justify-center bg-[#dee1dc]">
-                    <Image src="/logo.webp" height={200} width={200} alt="Login Image"/>
+                <div className="h-full hidden lg:flex items-center justify-center bg-gradient-to-b from-blue-700 to-blue-500">
+                    <Image src="/logo.svg" height={200} width={200} alt="Login Image"/>
                 </div>
             </div>
         </div>

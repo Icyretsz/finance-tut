@@ -13,17 +13,12 @@ export default function Home() {
     }, []);
     return (
         <>
-            <UserButton showName={true}/>
             <SignedIn>
             <div>
                 {data ? `Message: ${data}` : 'Fetching data...'}
             </div>
             </SignedIn>
-            <div className='bg-pink-300 inline-flex p-2 rounded-3xl'>
-                <SignInButton>
-                    <button>Sign in with Clerk</button>
-                </SignInButton>
-            </div>
+
         </>
     );
 }
