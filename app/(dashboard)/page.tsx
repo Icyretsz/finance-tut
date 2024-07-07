@@ -1,24 +1,18 @@
 "use client"
 import {SignInButton, UserButton, SignedIn} from "@clerk/nextjs"
-import  Link  from "next/link"
-import {useEffect, useState} from "react";
+import {useGetAccounts} from "@/features/accounts/api/use-get-accounts"
 
 export default function Home() {
-    const [data, setData] = useState(null);
+const accounts = useGetAccounts()
 
-    useEffect(() => {
-        fetch('/api/hello')
-            .then(response => response.json())
-            .then(result => setData(result.message));
-    }, []);
+
     return (
         <>
             <SignedIn>
-            <div>
-                {data ? `Message: ${data}` : 'Fetching data...'}
-            </div>
+                {accounts.data?.map((account) => {
+                    return <div key={account.id}>{account.name}</div>
+                })}
             </SignedIn>
-
         </>
     );
 }
