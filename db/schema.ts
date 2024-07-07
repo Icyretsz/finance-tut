@@ -1,4 +1,7 @@
 import {pgTable, text} from "drizzle-orm/pg-core";
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { z } from 'zod';
+
 
 export const accounts = pgTable("accounts", {
     id: text("id").primaryKey(),
@@ -6,6 +9,9 @@ export const accounts = pgTable("accounts", {
     name: text("name").notNull(),
     userId: text("user_id").notNull()
 })
+
+export const insertAccountSchema = createInsertSchema(accounts);
+
 //Install dependencies
 // npm install drizzle-orm @neondatabase/serverless
 // npm install -D drizzle-kit dotenv
